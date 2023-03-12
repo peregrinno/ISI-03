@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   pool.query('SELECT * FROM celulares', (error, results) => {
     if (error) throw error;
-    res.render('/celulares', { celulares: results.rows });
+    res.render('celulares', { celulares: results.rows });
   });
 });
 
@@ -30,7 +30,7 @@ app.post('/celulares', (req, res) => {
   const celular = req.body;
   pool.query('INSERT INTO celulares (id, nome, valor, imagem, especificacao) VALUES (default, $1, $2, $3, $4)', [celular.nome, celular.valor, celular.imagem, celular.especificacao], (error, results) => {
     if (error) throw error;
-    res.redirect('/celulares');
+    res.redirect('/');
   });
 });
 
@@ -38,9 +38,9 @@ app.post('/celulares', (req, res) => {
 app.put('/celulares/:id', (req, res) => {
   const id = req.params.id;
   const celular = req.body;
-  pool.query('UPDATE celulares SET nome = $1, valor = $2, imagem = $3, especificacao = $4 WHERE id = $5', [celular.nome, celular.valor, celular.imagem, celular.especificacao, id], (error, results) => {
+  pool.query('UPDATE celulares SET nome = $1, valor = $2, imagem =$3, especificacao = $4 WHERE id = $5', [celular.nome, celular.valor, celular.imagem, celular.especificacao, id], (error, results) => {
     if (error) throw error;
-    res.redirect('/celulares');
+    res.redirect('/');
   });
 });
 
@@ -49,7 +49,7 @@ app.delete('/celulares/:id', (req, res) => {
   const id = req.params.id;
   pool.query('DELETE FROM celulares WHERE id = $1', [id], (error, results) => {
     if (error) throw error;
-    res.redirect('/celulares');
+    res.redirect('/');
   });
 });
 
