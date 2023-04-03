@@ -1,5 +1,9 @@
 # ISI-03
 
+<h1>Squad</h1>
+
+<h2>Anna Beatriz | Davyd Braz | Luan Araujo</h2>
+
 <h1>Começando pelo começo!</h1>
 
 <p>Esse código é um sistema simples de gerenciamento de celulares utilizando Node.js e PostgreSQL. A aplicação consiste em uma página HTML (celulares.js) que lista todos os celulares cadastrados no banco de dados, e um servidor Node.js (app.js) que fornece as rotas para criar, ler, atualizar e excluir celulares no banco de dados.
